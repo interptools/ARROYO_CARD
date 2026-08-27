@@ -9,6 +9,8 @@ ORG:Arroyo Suite
 TITLE:Japanese-English Interpreter & Translator
 TEL;TYPE=CELL,VOICE:+639073964062
 EMAIL;TYPE=INTERNET,PREF:areymar36@gmail.com
+URL;TYPE=WORK:https://interptools.github.io/arroyo-translation-services/
+URL;TYPE=WORK:https://interptools.github.io/arroyo-cv-builder/
 URL:https://interptools.github.io/card/
 NOTE:Japanese <-> English interpretation, document translation, meeting minutes, and workflow automation.
 END:VCARD
