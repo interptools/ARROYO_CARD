@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reymar Arroyo — Arroyo Suite</title>
+<meta name="description" content="Arroyo Suite — Japanese-English interpretation, translation, and workflow automation. Reymar Arroyo.">
+<meta name="theme-color" content="#1a1a1a">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Reymar Arroyo — Arroyo Suite">
+<meta property="og:description" content="Japanese-English interpretation, translation, and workflow automation.">
+<meta property="og:image" content="https://interptools.github.io/card/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reymar Arroyo — Arroyo Suite">
+<meta name="twitter:description" content="Japanese-English interpretation, translation, and workflow automation.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:        #171714;
+    --ink-2:      #4a4843;
+    --ink-3:      #8b8880;
+    --paper:      #f2efe8;
+    --paper-2:    #e8e4db;
+    --white:      #fdfcfa;
+    --red:        #b03a2e;
+    --gold:       #a67c3f;
+    --border:     rgba(23,23,20,0.10);
+    --border-mid: rgba(23,23,20,0.20);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'DM Mono', ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem 2.5rem;
+    line-height: 1.5;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 430px;
+    background: var(--white);
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    overflow: hidden;
+    animation: rise 0.5s cubic-bezier(0.2,0.8,0.2,1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+  }
+
+  .rule-top {
+    height: 3px;
+    background: var(--red);
+  }
+
+  /* ---------- header ---------- */
+
+  .header {
+    background: var(--ink);
+    padding: 2.25rem 1.75rem 1.9rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '通訳';
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 800;
+    font-size: 6.5rem;
+    line-height: 0.85;
+    color: rgba(253,252,250,0.045);
+    position: absolute;
+    right: 0.4rem;
+    bottom: -0.6rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-mark {
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    display: grid;
+    place-items: center;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2.05rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: 0.005em;
+    position: relative;
+  }
+
+  .name-jp {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(253,252,250,0.38);
+    letter-spacing: 0.12em;
+    margin-top: 0.45rem;
+  }
+
+  .role {
+    font-size: 11px;
+    color: rgba(253,252,250,0.62);
+    letter-spacing: 0.04em;
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(253,252,250,0.12);
+    max-width: 78%;
+    line-height: 1.65;
+  }
+
+  /* ---------- sections ---------- */
+
+  .section {
+    padding: 1.6rem 1.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1rem;
+  }
+
+  /* ---------- contact rows ---------- */
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.55rem 0;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  a.row:hover, a.row:active { color: var(--red); }
+
+  .row + .row { border-top: 1px solid var(--border); }
+
+  .glyph {
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border-mid);
+    border-radius: 2px;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    color: var(--red);
+    flex-shrink: 0;
+    font-style: normal;
+  }
+
+  .row-body { min-width: 0; flex: 1; }
+
+  .row-label {
+    font-size: 8.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.15rem;
+  }
+
+  .row-value {
+    font-size: 13px;
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+
+  .row-arrow {
+    font-size: 11px;
+    color: var(--ink-3);
+    flex-shrink: 0;
+  }
+
+  /* ---------- services ---------- */
+
+  .services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .svc {
+    padding: 0.85rem 0.9rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .svc:nth-child(even) { border-right: none; }
+  .svc:nth-last-child(-n+2) { border-bottom: none; }
+
+  .svc-no {
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+  }
+
+  .svc-name {
+    font-size: 11.5px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ---------- actions ---------- */
+
+  .actions { padding: 1.6rem 1.75rem 1.9rem; }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: #2c2b27; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--border-mid);
+    margin-top: 0.6rem;
+  }
+
+  .btn-ghost:hover { background: var(--paper-2); }
+
+  .note {
+    text-align: center;
+    font-size: 9.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- qr panel ---------- */
+
+  .qr-panel {
+    display: none;
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: var(--paper-2);
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .qr-panel.open { display: block; }
+
+  #qr-target {
+    display: inline-block;
+    padding: 0.75rem;
+    background: var(--white);
+    border-radius: 2px;
+    line-height: 0;
+  }
+
+  #qr-target img, #qr-target canvas { display: block; }
+
+  .qr-caption {
+    font-size: 9.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    margin-top: 0.75rem;
+  }
+
+  /* ---------- footer ---------- */
+
+  .footer {
+    background: var(--paper-2);
+    padding: 1rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-top: 1px solid var(--border);
+  }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%) translateY(150%);
+    background: var(--ink);
+    color: var(--white);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.4rem;
+    border-radius: 2px;
+    transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1);
+    z-index: 50;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 400px) {
+    .name { font-size: 1.8rem; }
+    .header { padding: 2rem 1.4rem 1.7rem; }
+    .section, .actions, .footer { padding-left: 1.4rem; padding-right: 1.4rem; }
+    .role { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="rule-top"></div>
+
+  <header class="header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">通</span>
+      <span class="brand-name">Arroyo Suite</span>
+    </div>
+    <h1 class="name">Reymar Arroyo</h1>
+    <p class="name-jp">アロヨ・レイマー</p>
+    <p class="role">Japanese &harr; English interpretation, document translation, and workflow automation.</p>
+  </header>
+
+  <section class="section">
+    <p class="label">Get in touch</p>
+
+    <a class="row" href="tel:+639073964052">
+      <i class="glyph" aria-hidden="true">☎</i>
+      <span class="row-body">
+        <span class="row-label">Mobile</span>
+        <span class="row-value">+63 907 396 4052</span>
+      </span>
+      <span class="row-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="row" href="mailto:areymar36@gmail.com">
+      <i class="glyph" aria-hidden="true">✉</i>
+      <span class="row-body">
+        <span class="row-label">Email</span>
+        <span class="row-value">areymar36@gmail.com</span>
+      </span>
+      <span class="row-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="row" href="https://wa.me/639073964052" target="_blank" rel="noopener">
+      <i class="glyph" aria-hidden="true">✆</i>
+      <span class="row-body">
+        <span class="row-label">WhatsApp</span>
+        <span class="row-value">Message directly</span>
+      </span>
+      <span class="row-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="row" href="viber://chat?number=%2B639073964052">
+      <i class="glyph" aria-hidden="true">◈</i>
+      <span class="row-body">
+        <span class="row-label">Viber</span>
+        <span class="row-value">Message directly</span>
+      </span>
+      <span class="row-arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section class="section">
+    <p class="label">Services</p>
+    <div class="services">
+      <div class="svc">
+        <p class="svc-no">01</p>
+        <p class="svc-name">Live interpretation<br>JP &harr; EN</p>
+      </div>
+      <div class="svc">
+        <p class="svc-no">02</p>
+        <p class="svc-name">Document translation<br>format preserved</p>
+      </div>
+      <div class="svc">
+        <p class="svc-no">03</p>
+        <p class="svc-name">Meeting minutes<br>&amp; transcription</p>
+      </div>
+      <div class="svc">
+        <p class="svc-no">04</p>
+        <p class="svc-name">Workflow automation<br>&amp; internal tools</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <a class="btn btn-primary" id="save-btn" href="contact.vcf" download="Reymar-Arroyo.vcf">
+      <span aria-hidden="true">⬇</span> Save to contacts
+    </a>
+
+    <button class="btn btn-ghost" id="share-btn" type="button">
+      <span aria-hidden="true">⇗</span> Share this card
+    </button>
+
+    <button class="btn btn-ghost" id="qr-btn" type="button" aria-expanded="false" aria-controls="qr-panel">
+      <span aria-hidden="true">▤</span> Show QR code
+    </button>
+
+    <div class="qr-panel" id="qr-panel">
+      <div id="qr-target"></div>
+      <p class="qr-caption">Scan to open this card</p>
+    </div>
+
+    <p class="note">Tap “Save to contacts” to add me to your phone.</p>
+  </div>
+
+  <footer class="footer">
+    <span>Arroyo Suite</span>
+    <span>Philippines</span>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var VCARD = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'N:Arroyo;Reymar;;;',
+    'FN:Reymar Arroyo',
+    'X-PHONETIC-LAST-NAME:アロヨ',
+    'X-PHONETIC-FIRST-NAME:レイマー',
+    'SORT-STRING:アロヨ レイマー',
+    'ORG:Arroyo Suite',
+    'TITLE:Japanese-English Interpreter & Translator',
+    'TEL;TYPE=CELL,VOICE:+639073964052',
+    'EMAIL;TYPE=INTERNET,PREF:areymar36@gmail.com',
+    'URL:' + location.href.split('#')[0],
+    'NOTE:Japanese <-> English interpretation, document translation, meeting minutes, and workflow automation.',
+    'END:VCARD'
+  ].join('\r\n');
+
+  var toast = document.getElementById('toast');
+  var toastTimer;
+
+  function say(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.remove('show');
+    }, 2600);
+  }
+
+  /* Save to contacts — build the vCard in-browser so the static
+     file is only a fallback if Blob URLs are unavailable. */
+  var saveBtn = document.getElementById('save-btn');
+  try {
+    var blob = new Blob([VCARD], { type: 'text/vcard;charset=utf-8' });
+    saveBtn.href = URL.createObjectURL(blob);
+  } catch (e) {
+    /* keep the contact.vcf href already in the markup */
+  }
+  saveBtn.addEventListener('click', function () {
+    say('Opening contact card');
+  });
+
+  /* Share */
+  document.getElementById('share-btn').addEventListener('click', function () {
+    var url = location.href.split('#')[0];
+    if (navigator.share) {
+      navigator.share({
+        title: 'Reymar Arroyo — Arroyo Suite',
+        text: 'Japanese \u2194 English interpretation and translation.',
+        url: url
+      }).catch(function () {});
+      return;
+    }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () {
+        say('Link copied');
+      }).catch(function () {
+        say('Copy failed — select the address bar');
+      });
+      return;
+    }
+    say('Copy the address bar to share');
+  });
+
+  /* QR */
+  var qrBtn = document.getElementById('qr-btn');
+  var qrPanel = document.getElementById('qr-panel');
+  var qrTarget = document.getElementById('qr-target');
+  var qrDrawn = false;
+
+  qrBtn.addEventListener('click', function () {
+    var open = qrPanel.classList.toggle('open');
+    qrBtn.setAttribute('aria-expanded', String(open));
+    qrBtn.innerHTML = open
+      ? '<span aria-hidden="true">▤</span> Hide QR code'
+      : '<span aria-hidden="true">▤</span> Show QR code';
+
+    if (open && !qrDrawn) {
+      if (typeof QRCode === 'undefined') {
+        qrTarget.innerHTML = '<p style="font-size:10px;color:#8b8880;line-height:1.6;padding:1rem">' +
+          'QR library unavailable offline.<br>Reconnect and reload.</p>';
+        qrDrawn = true;
+        return;
+      }
+      new QRCode(qrTarget, {
+        text: location.href.split('#')[0],
+        width: 168,
+        height: 168,
+        colorDark: '#171714',
+        colorLight: '#fdfcfa',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      qrDrawn = true;
+    }
+  });
+})();
+</script>
+</body>
+</html>

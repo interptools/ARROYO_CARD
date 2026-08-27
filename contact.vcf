@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Arroyo;Reymar;;;
+FN:Reymar Arroyo
+X-PHONETIC-LAST-NAME:アロヨ
+X-PHONETIC-FIRST-NAME:レイマー
+SORT-STRING:アロヨ レイマー
+ORG:Arroyo Suite
+TITLE:Japanese-English Interpreter & Translator
+TEL;TYPE=CELL,VOICE:+639073964052
+EMAIL;TYPE=INTERNET,PREF:areymar36@gmail.com
+URL:https://interptools.github.io/card/
+NOTE:Japanese <-> English interpretation, document translation, meeting minutes, and workflow automation.
+END:VCARD
